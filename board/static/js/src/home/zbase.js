@@ -46,7 +46,7 @@ class Home {
         this.$frame_write_form_roomid_input_warn = this.$frame.find(".home_frame_write_form_item_roomid_input_warn");
         this.$frame_write_form_submit = this.$frame.find(".home_frame_write_form_submit");
 
-        //this.$frame_form.hide();
+        // this.$frame_form.hide();
         this.$home.hide();
         this.$frame_write_form_roomid_input_warn.hide();
         this.root.$cooperation_board.append(this.$home);

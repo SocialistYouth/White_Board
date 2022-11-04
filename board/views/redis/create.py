@@ -5,6 +5,7 @@ import random
 
 def create(request):
     tmp = random.randint(1, 100)
+    
     while cache.has_key(tmp):
         tmp = random.randint(1, 100)
 

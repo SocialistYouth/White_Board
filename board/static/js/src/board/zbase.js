@@ -8,7 +8,7 @@ class Board {
 `);
         
 
-        //this.$board.hide();
+        this.$board.hide();
         this.root.$cooperation_board.append(this.$board);
         this.height = this.$board.height();
         this.width = this.$board.width();
@@ -24,7 +24,7 @@ class Board {
     show(roomid,mode) {
         this.roomid = roomid;
         this.mode = mode;
-        this.$board_painter.show();
+        this.$board.show();
         this.mps = new MultiUserSocket(this);
     }
 

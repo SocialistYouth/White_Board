@@ -29,12 +29,13 @@ class BoardObject {
         // this.y1 = (this.paint_board.board.height - this.paint_board.height)/2;
         // this.ctx.fillStyle = "#FF0000";
         // this.ctx.fillRect(0, 0, this.paint_board.width, this.paint_board.height);
+        this.$canvas.hide();
         this.paint_board.$paint.append(this.$canvas);
 
 
 
 
-        this.start();
+        // this.start();
     }
 
     start() {
@@ -114,7 +115,7 @@ class BoardObject {
         this.$paint = $(`
 <div class="board_paint" style="transform: translate(-50%, -50%);position: absolute;left: 50%;top: 50%;width: 80%;height: 80%;background-color: #FFFFFF;"></div>        
 `);
-        // this.$paint.hide();
+        this.$paint.hide();
         this.board.$board.append(this.$paint);
         this.width = this.$paint.width();
         this.height = this.$paint.height();
@@ -150,7 +151,7 @@ class BoardObject {
 `);
         
 
-        //this.$board.hide();
+        this.$board.hide();
         this.root.$cooperation_board.append(this.$board);
         this.height = this.$board.height();
         this.width = this.$board.width();
@@ -166,7 +167,7 @@ class BoardObject {
     show(roomid,mode) {
         this.roomid = roomid;
         this.mode = mode;
-        this.$board_painter.show();
+        this.$board.show();
         this.mps = new MultiUserSocket(this);
     }
 
@@ -221,8 +222,8 @@ class BoardObject {
         this.$frame_write_form_roomid_input_warn = this.$frame.find(".home_frame_write_form_item_roomid_input_warn");
         this.$frame_write_form_submit = this.$frame.find(".home_frame_write_form_submit");
 
-        // this.$frame_form.hide();
-        this.$home.hide();
+        this.$frame_form.hide();
+        // this.$home.hide();
         this.$frame_write_form_roomid_input_warn.hide();
         this.root.$cooperation_board.append(this.$home);
         this.start();

@@ -6,16 +6,16 @@ from django.core.cache import cache
 
 class MultiUser(WebsocketConsumer):
     def connect(self):
-        self.roomid = self.scope['url_route']['kwargs']['roomid']
-        self.mode = self.scope['url_route']['kwargs']['mode']
-        self.room_group_name = 'board_%s' % self.roomid
-        print("roomid:" + self.roomid + " mode:" + self.mode)
-
-        # Join room group
-        async_to_sync(self.channel_layer.group_add)(
-            self.room_group_name,
-            self.channel_name
-        )
+        #self.roomid = self.scope['url_route']['kwargs']['roomid']
+        #self.mode = self.scope['url_route']['kwargs']['mode']
+        #self.room_group_name = 'board_%s' % self.roomid
+        #print("roomid:" + self.roomid + " mode:" + self.mode)
+        # self.room_group_name = 'board_11'
+        # # Join room group
+        # async_to_sync(self.channel_layer.group_add)(
+        #     self.room_group_name,
+        #     self.channel_name
+        # )
         print("成功连接")
         self.accept()
 

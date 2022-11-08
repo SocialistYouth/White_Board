@@ -29,13 +29,13 @@ class BoardObject {
         // this.y1 = (this.paint_board.board.height - this.paint_board.height)/2;
         // this.ctx.fillStyle = "#FF0000";
         // this.ctx.fillRect(0, 0, this.paint_board.width, this.paint_board.height);
-        this.$canvas.hide();
+        // this.$canvas.hide();
         this.paint_board.$paint.append(this.$canvas);
 
 
 
 
-        // this.start();
+        this.start();
     }
 
     start() {
@@ -109,16 +109,21 @@ class BoardObject {
 
     }
 
+    show() {
+        this.$canvas.show();
+    }
+
 }class PaintBoard {
     constructor(board) {
         this.board = board;
         this.$paint = $(`
 <div class="board_paint" style="transform: translate(-50%, -50%);position: absolute;left: 50%;top: 50%;width: 80%;height: 80%;background-color: #FFFFFF;"></div>        
 `);
-        this.$paint.hide();
+        // this.$paint.hide();
         this.board.$board.append(this.$paint);
         this.width = this.$paint.width();
         this.height = this.$paint.height();
+        console.log(this.width, this.height );
         this.board_canvas = new BoardCanvas(this);
 
     }
@@ -126,6 +131,10 @@ class BoardObject {
     start() {}
 
     update() {}
+
+    show() {
+        this.$paint.show();
+    }
 }class MultiUserSocket {
     constructor(board) {
         this.board = board;
@@ -155,7 +164,7 @@ class BoardObject {
         this.root.$cooperation_board.append(this.$board);
         this.height = this.$board.height();
         this.width = this.$board.width();
-        this.paint_board = new PaintBoard(this);
+        // this.paint_board = new PaintBoard(this);
         this.start();
     }
 
@@ -169,6 +178,7 @@ class BoardObject {
         this.mode = mode;
         this.$board.show();
         this.mps = new MultiUserSocket(this);
+        this.paint_board = new PaintBoard(this);
     }
 
     hide() {

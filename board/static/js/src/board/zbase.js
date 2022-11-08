@@ -12,7 +12,7 @@ class Board {
         this.root.$cooperation_board.append(this.$board);
         this.height = this.$board.height();
         this.width = this.$board.width();
-        this.paint_board = new PaintBoard(this);
+        // this.paint_board = new PaintBoard(this);
         this.start();
     }
 
@@ -26,6 +26,7 @@ class Board {
         this.mode = mode;
         this.$board.show();
         this.mps = new MultiUserSocket(this);
+        this.paint_board = new PaintBoard(this);
     }
 
     hide() {
